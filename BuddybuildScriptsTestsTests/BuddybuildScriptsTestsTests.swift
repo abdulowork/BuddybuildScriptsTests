@@ -11,26 +11,39 @@ import XCTest
 
 class BuddybuildScriptsTestsTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var request = URLRequest(url: URL(string: "http://127.0.0.1:8545")!)
+        try! XCTAssertNoThrow({
+            let data = try URLSession.shared.data(from: request)
+            print("Hello \(data)")
+        }())
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+}
+
+extension URLSession {
+    
+    func data(from request: URLRequest) throws -> Data {
+        var data: Data? = nil
+        var error: Error? = nil
+        let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0)
+        URLSession.shared.dataTask(
+            with: request,
+            completionHandler: { (taskData: Data?, response: URLResponse?, taskError: Error?) in
+                if let response = response as? HTTPURLResponse,
+                    (200...299).contains(response.statusCode) {
+                    data = taskData
+                }
+                error = taskError
+                semaphore.signal()
+        }).resume()
+        semaphore.wait()
+        if let error = error {
+            throw error
+        } else if let data = data  {
+            return data
         }
+        return Data()
     }
     
 }
