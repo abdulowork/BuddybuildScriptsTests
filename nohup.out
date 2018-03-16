@@ -1,0 +1,13 @@
+yarn run v1.5.1
+$ /Users/abdul/India/BuddybuildScriptsTests/node_modules/.bin/ganache-cli --account=0x1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5,1
+Ganache CLI v6.1.0 (ganache-core: 2.1.0)
+
+Available Accounts
+==================
+(0) 0xcd8ac90d9cc7e4c03430d58d2f3e87dae70b807e
+
+Private Keys
+==================
+(0) 1636e10756e62baabddd4364010444205f1216bdb1644ff8f776f6e2982aa9f5
+
+Listening on localhost:8545
