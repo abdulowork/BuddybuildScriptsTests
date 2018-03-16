@@ -103,6 +103,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96393BAD205B2DF000CFCB3B /* Build configuration list for PBXNativeTarget "BuddybuildScriptsTests" */;
 			buildPhases = (
+				96393BB3205B434700CFCB3B /* ShellScript */,
 				96393B8C205B2DF000CFCB3B /* Sources */,
 				96393B8D205B2DF000CFCB3B /* Frameworks */,
 				96393B8E205B2DF000CFCB3B /* Resources */,
@@ -193,6 +194,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		96393BB3205B434700CFCB3B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		96393B8C205B2DF000CFCB3B /* Sources */ = {
